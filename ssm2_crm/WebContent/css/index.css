@@ -1,0 +1,65 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+#main{
+	width: 1300px;
+	border: 2 solid saddlebrown;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+#left{
+	width: 200px;
+	height: 600px;
+	background-color:#F7F7F7;
+	float: left;
+	border-radius: 5px;
+}
+.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+ 
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none;
+}
+.mlabels{
+	height: 50px;
+	border: 1px solid #E5E5E5;
+	margin-top: -1px;
+	line-height: 50px;
+	padding-left: 20px;
+	color:  #31B0D5;
+}
+.tMlabels{
+	background-color: #E5E5E5;
+}
+i{
+	margin-right: 15px;
+}
+#right{
+	float: right;
+	width: 1000px;
+	height: 500px;
+	margin-right:75px;
+}
+#nav{
+	margin-top: 20px;
+	border: 1px solid #E5E5E5;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.navPadding{
+	margin-right:10px ;
+}
+#bod input,select{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 38px;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crm.dao.CustomerDao">
+	<select id="findAll" resultType="Customer">
+		select * from customer
+	</select>
+	<select id="findTotal" resultType="int" parameterType="Customer">
+		select count(*) from customer
+		<where>
+			<if test="name != null and name != ''">
+				and name like "%"#{name}"%"				
+			</if>
+			<if test="source != null and source != ''">
+				and source = #{source}				
+			</if>
+			<if test="industry != null and industry != ''">
+				and industry = #{industry}				
+			</if>
+			<if test="level != null and level != ''">
+				and level = #{level}				
+			</if>
+		</where>
+	</select>
+	
+	<select id="findByPage" parameterType="java.util.Map" resultType="Customer">
+		select * from customer
+		<where>
+			<if test="cus.name != null and cus.name != ''">
+				and name like "%"#{cus.name}"%"					
+			</if>
+			<if test="cus.source != null and cus.source != ''">
+				and source = #{cus.source}				
+			</if>
+			<if test="cus.industry != null and cus.industry != ''">
+				and industry = #{cus.industry}				
+			</if>
+			<if test="cus.level != null and cus.level != ''">
+				and level = #{cus.level}				
+			</if>
+		</where>
+		limit #{pageNum},#{pageSize}
+	</select>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from customer where id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="Customer">
+		update customer set
+			name = #{name},
+			source = #{source},
+			industry = #{industry},
+			level = #{level},
+			telephone = #{telephone},
+			phone = #{phone}
+		where id = #{id}
+	</update>	
+</mapper>
